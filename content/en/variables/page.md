@@ -250,16 +250,16 @@ There are one caveat with this, and this isn't new, but it's worth mentioning he
 
 {{< new-in "0.117.0" >}} This renders all the shortcodes in the content, preserving the surrounding markup (e.g. Markdown) as is.
 
-The common use case this is to composing a page from multiple content files while preserving a global context for table of contents and foot notes.
+The common use case for this is composing a page from multiple content files while preserving a global context for table of contents and foot notes.
 
-This method is most often used in shortcode templates. A simple example of shortcode template including content from another page would look like:
+This method is most often used in shortcode templates. A simple example of a shortcode template that includes content from another page would look like:
 
 ```go-html-template
 {{ $p := site.GetPage (.Get 0) }}
 {{ $p.RenderShortcodes }}
 ```
 
-In the above it's important to understand  and the difference between the two delimiters used when including a shortcode:
+In the above it's important to understand the difference between the two delimiters used when including a shortcode:
 
 * `{{</* myshortcode */>}}` tells Hugo that the rendered shortcode does not need further processing (e.g. it's HTML).
 * `{{%/* myshortcode */%}}` tells Hugo that the rendered shortcode needs further processing (e.g. it's Markdown).
@@ -270,7 +270,6 @@ The latter is what you want to use for the include shortcode outlined above:
 ## Mypage
 {{%/* include "mypage" */%}}
 ``````
-
 
 Also see [Use Shortcodes](/content-management/shortcodes/#use-shortcodes).
 
